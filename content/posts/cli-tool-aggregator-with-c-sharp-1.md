@@ -1,7 +1,7 @@
 ---
 title: 'Building a CLI Tool Aggregator with C#: Creating a hello world .NET tool'
 date: 2022-04-18T12:13:30+05:30
-draft: false
+draft: true
 description: "What began as me writing an article about a new thing I'd learnt turned into me trying to build something that at least 1 person would find useful. I am the 'one' person. 😄"
 series: ['Commander']
 tags: [Dotnet]
