@@ -1,0 +1,12 @@
+<div class="post-meta">
+  {{ if (gt .Page.PublishDate 0)}}
+  <div class="meta">
+    <div class="date">
+      <span class="day">{{ .Page.ReadingTime }}</span>
+      <span class="rest">
+        {{ cond (eq .Page.ReadingTime 1) "min" "mins" }} read
+      </span>
+    </div>
+  </div>
+  {{ end }}
+</div>

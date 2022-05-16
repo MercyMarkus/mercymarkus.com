@@ -1,0 +1,22 @@
+{{ if .Params.series }}
+<aside class="toc">
+  <details>
+    <summary>Series Overview</summary>
+    <ul class="list-group">
+      {{ range $num,$post := (index .Site.Taxonomies.series (index
+      .Params.series 0 | urlize)).Pages.ByDate }} {{ if eq $post.Permalink
+      $.Page.Permalink }}
+      <li class="list-group-item active">
+        This Article
+      </li>
+      {{ else }}
+      <li class="list-group-item">
+        <a href="{{$post.Permalink}}">
+          {{ $post.Params.title}}
+        </a>
+      </li>
+      {{end}} {{end}}
+    </ul>
+  </details>
+</aside>
+{{end}}

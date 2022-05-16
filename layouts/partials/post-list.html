@@ -1,0 +1,12 @@
+<section class="post-list">
+  <h3>{{ .title }}</h3>
+  {{ range .posts }}
+  <div>
+    <a href="{{ .RelPermalink }}">
+      <span class="post-list-item__date">
+        {{ .Title }} {{ .PublishDate.Format "Jan 2, 2006" }}
+      </span>
+    </a>
+  </div>
+  {{ end }}
+</section>

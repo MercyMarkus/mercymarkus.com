@@ -1,0 +1,87 @@
+baseURL = "https://mercymarkus.com"
+languageCode = "en-us"
+title = 'Mercy Markus'
+paginate = 5
+
+copyright = "© Copyright notice"
+
+pygmentsstyle = "vs"
+pygmentscodefences = true
+pygmentscodefencesguesssyntax = true
+
+[params]
+	subtitle = "Fiddling with code."
+
+	# Content types to disable Disqus on.
+	disableDisqusTypes = ["page"]
+
+	mode = "light" # or "dark" or "auto"
+
+[markup]
+  [markup.tableOfContents]
+    endLevel = 4
+    ordered = false
+    startLevel = 3
+
+  [markup.highlight]
+    lineNos = true
+    anchorLineNos = false
+    codeFences = true
+    guessSyntax = false
+    hl_Lines = ''
+    lineNoStart = 1
+    lineAnchors = 'code-line'
+    lineNumbersInTable = true
+    noClasses = false
+    style = 'native'
+
+# Nav.
+[[menu.main]]
+name = "Home"
+url = "/"
+weight = 1
+
+[[menu.main]]
+name = "All posts"
+url = "/posts"
+weight = 2
+
+[[menu.main]]
+name = "Series"
+url = "/series"
+weight = 3
+
+[[menu.main]]
+name = "About"
+url = "/about"
+weight = 4
+
+[[menu.main]]
+name = "Tags"
+url = "/tags"
+weight = 5
+
+[[params.social]]
+name = "Github"
+icon = "github"
+url = "https://github.com/MercyMarkus"
+
+[[params.social]]
+name = "linkedin"
+icon = "linkedin"
+url = "https://www.linkedin.com/in/mercymarkus/"
+
+[[params.social]]
+name = "twitter"
+icon = "twitter"
+url = "https://twitter.com/MercyMarkus"
+
+[[params.social]]
+name = "RSS"
+icon = "rss"
+url = "/index.xml"
+
+[taxonomies]
+   tag = "tags"
+   category = "categories"
+   series = "series"
