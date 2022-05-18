@@ -4,10 +4,9 @@ title = 'Mercy Markus'
 paginate = 5
 
 copyright = "© Copyright notice"
+enableemoji = true
+ignorecache = true
 
-pygmentsstyle = "vs"
-pygmentscodefences = true
-pygmentscodefencesguesssyntax = true
 
 [params]
 	subtitle = "Fiddling with code."
@@ -33,7 +32,7 @@ pygmentscodefencesguesssyntax = true
     lineAnchors = 'code-line'
     lineNumbersInTable = true
     noClasses = false
-    style = 'native'
+    style = 'monokailight'
 
 # Nav.
 [[menu.main]]
