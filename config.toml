@@ -9,7 +9,7 @@ ignorecache = true
 
 
 [params]
-	subtitle = "Fiddling with code 👩🏾‍💻."
+	subtitle = "Fiddling with code 👩🏾‍💻"
   images = ["/images/Mercy.png"]
 
 	# Content types to disable Disqus on.
