@@ -1,7 +1,7 @@
 ---
 title: 'Building a CLI Tool Aggregator with C#: Creating a hello world .NET tool'
 date: 2022-04-18T12:13:30+05:30
-draft: true
+draft: false
 description: "What began as me writing an article about a new thing I'd learnt turned into me trying to build something that at least 1 person would find useful. I am the 'one' person. 😄"
 series: ['Commander']
 tags: [Dotnet]
@@ -22,18 +22,21 @@ From here on out, I'll be referring to the CLI tool we'll be building in this se
 
 **Here's what I'd like to be able to do with Commander:**
 
+<a href="red">Look, ma! Red!</a>
+
 1. Run my favorite CLI commands using command verbs of my choosing. e.g instead of **`git pull`**, I can run **`cmdr gp`** instead.
 2. Save the output of the CLI command I'm most interested in (**`speed-test`**) as a JSON file on my computer.
 3. Add extra fields to this JSON output (**`dateTime`** and **`connectionType`**). I'd like to know the exact time I ran the command and if my internet connection was wired (ethernet cable) or wireless (WiFi).
 4. Upload every run of this command to a cloud database. I'd probably do something uncomplicated like updating an online spreadsheet.
 5. Build a live dashboard with the data.
-6. _save the world_ (I wish it were that easy).
+6. <font color='red'>test blue color font</font> _save the world_ (I wish it were that easy).
 
 I'll be building my first objective using C#. The end result is a console application that can be packaged and installed as a NuGet Package. To make this less verbose, I'll assume this is not your first time using C# or the .NET CLI. If this is, please check out official documentation on how to setup your development environment if you'd like to follow along:
 
 - [Set up your development environment](https://docs.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/tutorials/local-environment)
 
 > Note: For this project, I'm using Visual Studio 2022 with C# 10 which was a part of the .NET 6 release. [Read more on C# 10](https://devblogs.microsoft.com/dotnet/welcome-to-csharp-10/).
+
 
 ### Creating a hello world .NET tool {#create-hello-world-dotnet-tool}
 
@@ -73,25 +76,24 @@ Next, we want to start building out commander. This involves:
 ```csharp
 <Project Sdk="Microsoft.NET.Sdk">
 
-	<PropertyGroup>
-		<OutputType>Exe</OutputType>
-		<TargetFramework>net6.0</TargetFramework>
-		<ImplicitUsings>enable</ImplicitUsings>
-		<Nullable>enable</Nullable>
-		<PackAsTool>true</PackAsTool>
-		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<ToolCommandName>cmdr</ToolCommandName>
-		<PackageId>Commander</PackageId>
-		<Description>Commander is a CLI tool aggregator that allows me customize my favorite CLI commands.</Description>
-		<Authors>Mercy Markus</Authors>
-	</PropertyGroup>
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <PackAsTool>true</PackAsTool>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <ToolCommandName>cmdr</ToolCommandName>
+        <PackageId>Commander</PackageId>
+        <Description>Commander is a CLI tool aggregator that allows me customize my favorite CLI commands.</Description>
+        <Authors>Mercy Markus</Authors>
+    </PropertyGroup>
 
-	<ItemGroup>
-		<PackageReference Include="System.CommandLine" Version="2.0.0-beta3.22114.1" />
-	</ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="System.CommandLine" Version="2.0.0-beta3.22114.1" />
+    </ItemGroup>
 
 </Project>
-
 ```
 
 From the official definitions:

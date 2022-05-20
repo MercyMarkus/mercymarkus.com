@@ -65,6 +65,10 @@ name = "Github"
 icon = "github"
 url = "https://github.com/MercyMarkus"
 
+# Used to define the twitter card site
+[Social]
+  twitter = "MercyMarkus"
+
 [[params.social]]
 name = "linkedin"
 icon = "linkedin"
