@@ -1,7 +1,7 @@
 ---
 title: 'Building a CLI Tool Aggregator with C#: Creating a hello world .NET tool'
 date: 2022-04-18T12:13:30+05:30
-draft: false
+draft: true
 description: "What began as me writing an article about a new thing I'd learnt turned into me trying to build something that at least 1 person would find useful. I am the 'one' person. 😄"
 series: ['Commander']
 tags: [Dotnet]
@@ -36,7 +36,6 @@ I'll be building my first objective using C#. The end result is a console applic
 - [Set up your development environment](https://docs.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/tutorials/local-environment)
 
 > Note: For this project, I'm using Visual Studio 2022 with C# 10 which was a part of the .NET 6 release. [Read more on C# 10](https://devblogs.microsoft.com/dotnet/welcome-to-csharp-10/).
-
 
 ### Creating a hello world .NET tool {#create-hello-world-dotnet-tool}
 
