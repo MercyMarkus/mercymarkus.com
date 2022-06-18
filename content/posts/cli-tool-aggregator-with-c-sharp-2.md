@@ -11,14 +11,20 @@ Todo: Use different branches to checkpoint different states of the code.
 
 {{< toc >}}
 
-### Using System.CommandLine to make our tool do more than print Hello world
+And now comes an SVG icon - {{< svg "bi-cart4" >}} - with text behind it..
+
+### Using System.CommandLine to make our tool do more than print Hello world {#more-than-hello-world}
+
+Install the `System.CommandLine.NamingConventionBinder`
+
+System.Diagnostics.Process Class (Provides access to local and remote processes and enables you to start and stop local system processes. In this case cmd (use powershell core? so it can be used on Mac & linux too. Test installing as a nugetPackage on MacOS without getting visual studio))
 
 Accept command line arguments
 Options, extensions, rootcommand, commands, commandHandler, aliases
 
 ### Run node processes in our app
 
-Use ProcessStart Info to install and run the speed-test command. i.e `commander speed` should run `speed-test --json` in the background.
+Use ProcessStart Info to install and run the speed-test command. i.e `cmdr speed` should run `speed-test --json` in the background.
 
 ### Introduce jq and use jq to build the json object
 
@@ -37,3 +43,7 @@ There are already a bunch of CLI tools that do similar things:
 - What started as me checking if I could call the speedtest.com or fast.com website from Postman took me down a rabbit hole. I found lots of Speed test CLI tools.
 - Found a cool tool that logs the speed every x interval. Might be nice to add (npm install --global internet-speed-continuous-monitor; https://www.npmjs.com/package/internet-speed-continuous-monitor)
 - Add ISP (https://www.npmjs.com/package/netspeedchecker)
+
+### Check Points
+
+- [Checkpoint 1](https://github.com/MercyMarkus/commander/tree/check-point-1)

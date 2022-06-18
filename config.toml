@@ -10,7 +10,7 @@ ignorecache = true
 
 [params]
 	subtitle = "Fiddling with code 👩🏾‍💻"
-  images = ["/images/Mercy.png"]
+  images = ["https://res.cloudinary.com/mercymarkus-com/image/upload/v1655527770/Mercy_Markus_qf96wi.jpg"]
 
 	# Content types to disable Disqus on.
 	disableDisqusTypes = ["page"]

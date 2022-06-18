@@ -565,13 +565,30 @@ aside.toc details summary {
 }
 aside.toc details ul {
   margin-top: 0;
-  list-style-type: auto;
+  list-style-type: disc;
 }
-
 
 a[href='red'] {
   color: red;
   pointer-events: none;
   cursor: default;
   text-decoration: none;
+}
+
+a.heading-link {
+  display: none;
+}
+@media screen and (min-width: 700px) {
+  a.heading-link {
+    display: inline-block;
+    margin-left: -20px;
+    padding-right: 6px;
+  }
+}
+a.heading-link svg {
+  fill: #32383e;
+}
+a.heading-link:hover,
+a.heading-link:focus {
+  visibility: visible;
 }
