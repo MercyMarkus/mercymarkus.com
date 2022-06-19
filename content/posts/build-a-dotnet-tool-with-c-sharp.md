@@ -67,7 +67,7 @@ This involves:
 
 **For the first step our `Commander.csproj` file needs to look like this:**
 
-```Program.cs
+```C#
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <OutputType>Exe</OutputType>
@@ -88,7 +88,7 @@ This involves:
 </Project>
 ```
 
-```Commander.csproj
+```csproj
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <OutputType>Exe</OutputType>

@@ -7,6 +7,8 @@ enableRobotsTXT = true
 copyright = "© Copyright notice"
 enableemoji = true
 ignorecache = true
+pygmentsUseClasses = true
+pygmentsCodefences = true
 
 
 [params]
