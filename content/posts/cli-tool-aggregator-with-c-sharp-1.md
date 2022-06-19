@@ -1,9 +1,9 @@
 ---
 title: 'Building a CLI Tool Aggregator with C#: Creating a hello world .NET tool'
-date: 2022-06-17T12:06:03+01:00
+date: 2022-06-18T12:06:03+01:00
 draft: false
 description: "What began as me writing an article about a new thing I'd learnt turned into me trying to build something that at least 1 person would find useful. I am the 'one' person. 😄"
-series: ['Commander']
+# series: ['Commander']
 tags: [Dotnet]
 ---
 
@@ -46,7 +46,7 @@ We'll be able to give the tool an input (a name) and then it says hello back. Th
 
 Here, I'm using the .NET CLI command line tool to setup a console application.
 
-```shell
+```Shell
 dotnet new console -o commander
 cd commander
 dotnet add package System.CommandLine --prerelease
@@ -57,7 +57,7 @@ dotnet add package System.CommandLine --prerelease
 
 After running the commands above, you'll have a simple application that prints out **`Hello, World!`** when you run the application.
 
-### Building out Commander - [Checkpoint 1](https://github.com/MercyMarkus/commander/tree/check-point-1)
+### Building out Commander - [First checkpoint](https://github.com/MercyMarkus/commander/tree/check-point-1)
 
 This involves:
 
@@ -65,9 +65,9 @@ This involves:
 2. Install this package globally on our computer i.e running **`cmdr`** should print out **`Hello, World`**.
 3. Use System.CommandLine to accept a name (**`--name`**) as input so we can print **`Hello, Mercy!`** if the `--name` input is included in the command.
 
-**For the first step our `commander.csproj` file needs to look like this:**
+**For the first step our `Commander.csproj` file needs to look like this:**
 
-```commander.csproj
+```Commander.csproj
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
@@ -102,7 +102,7 @@ From the official definitions:
 
 The tool can be installed globally with:
 
-```shell
+```Shell
 dotnet tool install --global --add-source ./bin/Debug Commander --version 1.0.0
 ```
 
@@ -110,7 +110,7 @@ By default, NuGet attempts to find the package in package sources we've already 
 
 The output of running this is:
 
-```shell
+```Shell
 You can invoke the tool using the following command: cmdr
 Tool 'commander' (version '1.0.0') was successfully installed.
 ```
@@ -121,9 +121,9 @@ More information can be found here: [How to manage .NET tools](https://docs.micr
 
 **For the third step, we'd like to accept a `name` input**
 
-Our `program.cs` file now looks like this:
+Our `Program.cs` file now looks like this:
 
-```program.cs
+```Program.cs
 // See https://aka.ms/new-console-template for more information
 using System.CommandLine;
 
@@ -163,20 +163,20 @@ The following are happening:
 
 We can update our tool to this new version by running:
 
-```shell
+```Shell
 dotnet tool update --global --add-source ./bin/Debug Commander
 ```
 
 Running `cmdr` results in:
 
-```shell
+```Shell
 The value for --name is: World
 Hello, World!
 ```
 
 Running `cmdr --name "Mercy Markus"` results in:
 
-```shell
+```Shell
 The value for --name is: Mercy Markus
 Hello, Mercy Markus!
 ```
@@ -185,7 +185,7 @@ Hello, Mercy Markus!
 
 Running `cmdr --help` results in:
 
-```shell
+```Shell
 Description:
   A Hello Greeter App
 
@@ -198,8 +198,8 @@ Options:
   -?, -h, --help                Show help and usage information
 ```
 
-In the next post, we'll modify commander to include a speed check subcommand i.e `cmdr speed` outputs our network speed.
+In the next post, we'll modify **commander** to include a speed check subcommand i.e `cmdr speed` outputs our network speed.
 
 ### Check Points
 
-- [Checkpoint 1](https://github.com/MercyMarkus/commander/tree/check-point-1)
+- [First checkpoint](https://github.com/MercyMarkus/commander/tree/check-point-1)

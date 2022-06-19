@@ -2,6 +2,7 @@ baseURL = "https://mercymarkus.com/"
 languageCode = "en-us"
 title = 'Mercy Markus'
 paginate = 5
+enableRobotsTXT = true
 
 copyright = "© Copyright notice"
 enableemoji = true
@@ -10,7 +11,7 @@ ignorecache = true
 
 [params]
 	subtitle = "Fiddling with code 👩🏾‍💻"
-  images = ["https://res.cloudinary.com/mercymarkus-com/image/upload/v1655527770/Mercy_Markus_qf96wi.jpg"]
+  images = ["https://res.cloudinary.com/mercymarkus-com/image/upload/v1655529750/MercyMarkus_qkaefg.jpg"]
 
 	# Content types to disable Disqus on.
 	disableDisqusTypes = ["page"]
@@ -87,5 +88,4 @@ url = "/index.xml"
 
 [taxonomies]
    tag = "tags"
-   category = "categories"
    series = "series"
