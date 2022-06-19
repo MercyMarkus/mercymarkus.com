@@ -13,7 +13,7 @@ pygmentsCodefences = true
 
 [params]
 	subtitle = "Fiddling with code 👩🏾‍💻"
-  images = ["https://res.cloudinary.com/mercymarkus-com/image/upload/v1655638258/Mercy_Markus_1_jwilo4.png"]
+  images = ["https://res.cloudinary.com/mercymarkus-com/image/upload/v1655643575/MercyMarkus_q4mpjj.png"]
 
 	# Content types to disable Disqus on.
 	disableDisqusTypes = ["page"]

@@ -57,7 +57,7 @@ dotnet add package System.CommandLine --prerelease
 
 After running the commands above, you'll have a simple application that prints out **`Hello, World!`** when you run the application.
 
-### Building out Commander - [First checkpoint](https://github.com/MercyMarkus/commander/tree/check-point-1)
+### Building out Commander: [First checkpoint](https://github.com/MercyMarkus/commander/tree/check-point-1)
 
 This involves:
 
@@ -68,27 +68,6 @@ This involves:
 **For the first step our `Commander.csproj` file needs to look like this:**
 
 ```C#
-<Project Sdk="Microsoft.NET.Sdk">
-    <PropertyGroup>
-        <OutputType>Exe</OutputType>
-        <TargetFramework>net6.0</TargetFramework>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
-        <PackAsTool>true</PackAsTool>
-        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <ToolCommandName>cmdr</ToolCommandName>
-        <PackageId>Commander</PackageId>
-        <Description>Commander is a CLI tool aggregator that allows me customize my favorite CLI commands.</Description>
-        <Authors>Mercy Markus</Authors>
-    </PropertyGroup>
-
-    <ItemGroup>
-        <PackageReference Include="System.CommandLine" Version="2.0.0-beta3.22114.1" />
-    </ItemGroup>
-</Project>
-```
-
-```csproj
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <OutputType>Exe</OutputType>
