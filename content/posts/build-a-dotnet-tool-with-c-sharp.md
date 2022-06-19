@@ -67,9 +67,8 @@ This involves:
 
 **For the first step our `Commander.csproj` file needs to look like this:**
 
-```
+```Program.cs
 <Project Sdk="Microsoft.NET.Sdk">
-
     <PropertyGroup>
         <OutputType>Exe</OutputType>
         <TargetFramework>net6.0</TargetFramework>
@@ -86,9 +85,28 @@ This involves:
     <ItemGroup>
         <PackageReference Include="System.CommandLine" Version="2.0.0-beta3.22114.1" />
     </ItemGroup>
-
 </Project>
+```
 
+```Commander.csproj
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <PackAsTool>true</PackAsTool>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <ToolCommandName>cmdr</ToolCommandName>
+        <PackageId>Commander</PackageId>
+        <Description>Commander is a CLI tool aggregator that allows me customize my favorite CLI commands.</Description>
+        <Authors>Mercy Markus</Authors>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="System.CommandLine" Version="2.0.0-beta3.22114.1" />
+    </ItemGroup>
+</Project>
 ```
 
 From the official definitions:
