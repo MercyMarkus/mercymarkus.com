@@ -67,7 +67,7 @@ This involves:
 
 **For the first step our `Commander.csproj` file needs to look like this:**
 
-```Commander.csproj
+```
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
