@@ -9,14 +9,14 @@ tags: [Dotnet]
 
 Coming from a Python background, switching to C# was daunting. The syntax was more verbose, with more filler code. Setting up projects was also more involved in comparison to Python.
 
-Overtime, I've come to appreciate and even understand the language better.
-I'm starting this series (and hopefully more 😅🤞🏾) as a way to document and share my learnings. It started as an attempt to share a new thing I'd learned and grew into an attempt at building something I'd find useful.
+Over time, I've come to appreciate and even understand the language better.
+I'm starting this series (and hopefully more 😅🤞🏾) as a way to document and share my learnings. It started as an attempt to share a new thing I'd learned and became an attempt at building something I'd find useful.
 
-I settled with building a CLI tool aggregator that allows me customize my favorite CLI commands. One of things I was most curious about was building a database of my internet speeds over time.
+I settled on building a CLI tool aggregator that allows me to customize my favorite CLI commands. One of the things I was most curious about was building a database of my internet speeds over time.
 
-From here on out, I'll be referring to the CLI tool we'll be building as **"Commander"** and using it from the CLI by typing **cmdr** (I'm shortening this for convenience sake).
+From here on out, I'll be referring to the CLI tool we'll be building as **"Commander"** and using it from the CLI by typing **cmdr** (I'm shortening this for the sake of convenience).
 
-_**Early disclaimer: Months into writing/building this I discovered that speedtest.net does most of what I wanted commander to do (save for detecting my connection type). Figured folks trying to build a dotnet tool might still find this useful.**_
+_**Early disclaimer: Months into writing/building this I discovered that speedtest.net does most of what I wanted commander to do (save for detecting my connection type). I figured folks trying to build a DotNet tool might still find this useful.**_
 
 {{< toc >}}
 
@@ -28,23 +28,23 @@ _**Early disclaimer: Months into writing/building this I discovered that speedte
 4. Upload every run of this command to a cloud database. I'd probably do something uncomplicated like updating an online spreadsheet.
 5. Build a live dashboard with the data.
 
-I'll be building my first objective using C#. The end result is a console application that can be packaged and installed as a NuGet Package. To make this less verbose, I'll assume this is not your first time using C# or the .NET CLI. If this is, please check out official documentation on how to setup your development environment if you'd like to follow along:
+I'll be building my first objective using C#. The result is a console application that can be packaged and installed as a NuGet Package. To make this less verbose, I'll assume this is not your first time using C# or the .NET CLI. If this is, please check out the official documentation on how to set up your development environment if you'd like to follow along:
 
 - [Set up your development environment](https://docs.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/tutorials/local-environment)
 
-> Note: For this project, I'm using Visual Studio 2022 with C# 10 which was a part of the .NET 6 release. [Read more on C# 10](https://devblogs.microsoft.com/dotnet/welcome-to-csharp-10/).
+> Note: For this project, I'm using Visual Studio 2022 with C# 10 which was a part of the .NET 6 release. [Read more on C# 10.](https://devblogs.microsoft.com/dotnet/welcome-to-csharp-10/)
 
 ### Creating a hello world .NET tool {#create-hello-world-dotnet-tool}
 
 **What is a .NET tool?**
 
-> The .NET CLI lets you create a console application as a tool, which others can install and run. DotNet tools are NuGet packages that are installed from the .NET CLI. For more information about tools, check out the [.NET tools overview](https://docs.microsoft.com/en-us/dotnet/core/tools/global-tools).
+> The .NET CLI lets you create a console application as a tool, which others can install and run. DotNet tools are NuGet packages that are installed from the .NET CLI. For more information about tools, check out the [.NET tools overview.](https://docs.microsoft.com/en-us/dotnet/core/tools/global-tools)
 
 I'll be creating different checkpoints for the development of commander. The first is a hello world .NET tool that uses the **`System.CommandLine`** package to handle our CLI "inputs". These inputs are called _arguments_. We'll talk more about this in the next post.
 
-We'll be able to give the tool an input (a name) and then it says hello back. This checkpoint is inspired by [this dotnet walkthrough ](https://github.com/dotnet/command-line-api/blob/main/docs/Your-first-app-with-System-CommandLine.md).
+We'll be able to give the tool an input (a name) and then it says hello back. This checkpoint is inspired by [this dotnet walkthrough.](https://github.com/dotnet/command-line-api/blob/main/docs/Your-first-app-with-System-CommandLine.md)
 
-Here, I'm using the .NET CLI command line tool to setup a console application.
+Here, I'm using the .NET CLI command-line tool to set up a console application.
 
 ```Shell
 dotnet new console -o commander
@@ -91,9 +91,9 @@ This involves:
 From the official definitions:
 
 - **PackAsTool** indicates if the NuGet package should be configured as a .NET tool suitable for use with **`dotnet tool install`** (this is the command for installing .NET tools). It's what we are most interested in here.
-- **GeneratePackageOnBuild** is for convenience sake. I'd like a new `.nupkg` (NuGet Package) to be generated every time I build the project. The alternative is running the **`nuget pack`** command manually every time.
+- **GeneratePackageOnBuild** is a "nice to have". Adding it results in a new `.nupkg` (NuGet Package) generated every time I build the project. The alternative is running the **`nuget pack`** command manually instead.
 - **ToolCommandName** specifies the command that'll invoke the tool after it's installed.
-- **PackageId** is a case-insensitive NuGet package identifier, which must be unique across nuget.org or whatever gallery the NuGet package will reside in. IDs may not contain spaces or characters that are not valid for a URL, and generally follow .NET namespace rules. This is important when we're publishing our NuGet package to a gallery so it can be easily discovered and used.
+- **PackageId** is a case-insensitive NuGet package identifier, which must be unique across nuget.org or whatever gallery the NuGet package will reside in. IDs may not contain spaces or characters that are not valid for a URL and generally follow .NET namespace rules. This is important when we're publishing our NuGet package to a gallery so it can be easily discovered and used.
 - **Description** is a long description of the NuGet package for UI display.
 
 **For the second step:**
@@ -115,7 +115,7 @@ Tool 'commander' (version '1.0.0') was successfully installed.
 
 Because we installed the tool globally, running `cmdr` from any terminal window will print `Hello, World!`.
 
-More information can be found here: [How to manage .NET tools](https://docs.microsoft.com/en-us/dotnet/core/tools/global-tools#install-a-global-tool).
+More information can be found here: [How to manage .NET tools.](https://docs.microsoft.com/en-us/dotnet/core/tools/global-tools#install-a-global-tool)
 
 **For the third step, we'd like to accept a `name` input.**
 
@@ -150,11 +150,11 @@ rootCommand.SetHandler((string name) =>
 return rootCommand.Invoke(args);
 ```
 
-The following are happening:
+The following is happening:
 
 1. We're using System.CommandLine to create an option (**`--name`**) that'll be used to accept a `name` input. This option is also required when the parent command is invoked.
    > Note: When an option is required and the parent command (`cmdr`) is invoked without it, an error occurs. This won't happen here because we're setting a default value for name.
-2. Setting the default value **`SetDefaultValue`** = **`World`** to maintain the out-of-box experience we got when we [started building out commander](#building-out-commander).
+2. Setting the default value **`SetDefaultValue`** = **`World`** to maintain the out-of-box experience we got when we [started building out commander.](#building-out-commander)
 3. Making the root command aware of the `nameOption`. You can think of an option as a symbol defining a named parameter that'll hold a value for that parameter.
 4. Adding a description for the root command.
 5. Passing the `name` input we're getting from the command line to the root command's handler when we invoke the `cmdr` command.
