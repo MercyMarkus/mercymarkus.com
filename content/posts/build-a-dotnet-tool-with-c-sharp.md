@@ -20,7 +20,7 @@ _**Early disclaimer: Months into writing/building this I discovered that speedte
 
 {{< toc >}}
 
-### What I'd like Commander to do
+### What I'd like `commander` to do
 
 1. Run my favorite CLI commands using command verbs of my choosing. e.g instead of **`git pull`**, I can run **`cmdr gp`** instead.
 2. Save the output of the CLI command I'm most interested in (**`speed-test`**) as a JSON file on my computer.
@@ -57,7 +57,7 @@ dotnet add package System.CommandLine --prerelease
 
 After running the commands above, you'll have a simple application that prints out **`Hello, World!`** when you run the application.
 
-### Building out Commander: [First checkpoint](https://github.com/MercyMarkus/commander/tree/check-point-1)
+### Building out `commander`: [first checkpoint](https://github.com/MercyMarkus/commander/tree/check-point-1)
 
 This involves:
 
@@ -117,7 +117,7 @@ Because we installed the tool globally, running `cmdr` from any terminal window 
 
 More information can be found here: [How to manage .NET tools](https://docs.microsoft.com/en-us/dotnet/core/tools/global-tools#install-a-global-tool).
 
-**For the third step, we'd like to accept a `name` input**
+**For the third step, we'd like to accept a `name` input.**
 
 Our `Program.cs` file now looks like this:
 
