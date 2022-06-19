@@ -16,11 +16,11 @@ I settled with building a CLI tool aggregator that allows me customize my favori
 
 From here on out, I'll be referring to the CLI tool we'll be building as **"Commander"** and using it from the CLI by typing **cmdr** (I'm shortening this for convenience sake).
 
-_**Early disclaimer: Months into writing/building this I discovered that speedtest.net does most of what I wanted commander to do (save for detecting my connection type). Figured folks trying to build a dotnet tool might still find it useful.**_
+_**Early disclaimer: Months into writing/building this I discovered that speedtest.net does most of what I wanted commander to do (save for detecting my connection type). Figured folks trying to build a dotnet tool might still find this useful.**_
 
 {{< toc >}}
 
-**Here's what I'd like to be able to do with Commander:**
+### What I'd like Commander to do
 
 1. Run my favorite CLI commands using command verbs of my choosing. e.g instead of **`git pull`**, I can run **`cmdr gp`** instead.
 2. Save the output of the CLI command I'm most interested in (**`speed-test`**) as a JSON file on my computer.
