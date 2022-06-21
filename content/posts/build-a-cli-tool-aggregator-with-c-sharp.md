@@ -1,30 +1,97 @@
 ---
 title: 'Building a CLI Tool Aggregator with C#: Beyond Hello World'
-date: 2022-04-28T12:13:30+05:30
+date: 2022-06-26T12:13:30+05:30
 draft: true
-description: "What began as me writing an article about a new thing I'd learnt turned into me trying to build something that at least 1 person would find useful. I am the 'one' person. 😄"
+description: 'A continuation of the "commander" series. We're going to build the aggregator by leveraging the fast-cli npm package.'
 series: ['Commander']
 tags: [Dotnet, Node]
 ---
 
-Todo: Use different branches to checkpoint different states of the code.
-
 {{< toc >}}
 
-And now comes an SVG icon - {{< svg "bi-cart4" >}} - with text behind it..
+### System.CommandLine beyond printing "Hello world" {#more-than-hello-world}
 
-### Using System.CommandLine to make our tool do more than print Hello world {#more-than-hello-world}
+Our starting point is getting `commander` to run a speed test command and because we need `commander` to work with multiple commands we'll be moving away from using the `SetHandler` function of our rootCommand object to invoke a command. We'll use individual command objects instead and invoke the commands by calling the `CommandHandler.Create()` method on them.
 
-Install the `System.CommandLine.NamingConventionBinder`
+To use the `CommandHandler` class, we need to install the `System.CommandLine.NamingConventionBinder` package to our project.
 
-System.Diagnostics.Process Class (Provides access to local and remote processes and enables you to start and stop local system processes. In this case cmd (use powershell core? so it can be used on Mac & linux too. Test installing as a nugetPackage on MacOS without getting visual studio))
+```shell
+dotnet add package System.CommandLine.NamingConventionBinder --prerelease
+```
+
+Our `Program.cs file` class needs to be modified for `cmdr speed` to print out the results of a speed test to the terminal.
+
+```Program.cs
+using System.CommandLine;
+using System.CommandLine.NamingConventionBinder;
+using System.Diagnostics;
+
+
+var cmdrRootCommand = new RootCommand();
+
+cmdrRootCommand.Description = "CLI commands aggregator app.";
+
+var speedCommand = new Command("speed", "runs a speed test")
+{
+    Handler = CommandHandler.Create(() =>
+    {
+        CommandRunner($"(npm list --global fast-cli || npm install --global fast-cli) && fast --upload --json");
+        CommandRunner("exit");
+    })
+};
+
+cmdrRootCommand.AddCommand(speedCommand);
+
+// Parse the incoming argument and invoke the handler
+return cmdrRootCommand.Invoke(args);
+
+static void CommandRunner(string command)
+{
+    var runProcess = new ProcessStartInfo
+    {
+        FileName = "pwsh.exe",
+        RedirectStandardInput = true,
+    };
+
+    Console.WriteLine($"PowerShell process started.");
+
+    var powerShellProcess = Process.Start(runProcess);
+    powerShellProcess?.StandardInput.WriteLine(command);
+    powerShellProcess?.WaitForExit();
+    powerShellProcess?.Close();
+}
+```
+
+The following new things are happening:
+
+1. We introduce `speedCommand`, a command object that'll run a speed test when invoked with `cmdr speed`.
+2. We create a `Handler` that represents the action that will be performed when the command is invoked.
+3. We use a static method called `CommandRunner` to check if the `fast-cli` Npm package exists, if it doesn't we install it and then run the speed test command. This is followed by an `exit` command to exit the PowerShell process.
+4. `CommandRunner` uses the `System.Diagnostics.ProcessStartInfo` class to start a PowerShell process that'll run our commands.
+5. After the handler is created, we add the `speedCommand` subcommand to the `cmdrRootCommand`.
+6. Finally, we invoke `cmdrRootCommand`.
+
+> Note: `System.Diagnostics.Process` class provides access to local and remote processes and enables you to start and stop local system processes.
+
+Update `cmdr`, run `cmdr speed`
+
+Result:
+
+```shell
+PowerShell process started.
+PowerShell 7.2.4
+Copyright (c) Microsoft Corporation.
+https://aka.ms/powershell
+Type 'help' to get help.
+PS C:\Users\mercymarkus> (npm list --global fast-cli || npm install --global fast-cli) && fast --upload --json          C:\Users\mercymarkus\AppData\Roaming\npm
+`--fast-cli@3.2.0{
+    "downloadSpeed": 22,                                                                                                    "uploadSpeed": 2.9,                                                                                                     "downloaded": 80,                                                                                                       "uploaded": 10,                                                                                                         "latency": 135,                                                                                                         "bufferBloat": 580,                                                                                                     "userLocation": "Kaduna, NG",                                                                                           "userIp": "197.210.70.242"                                                                                      }
+```
+
+ <!-- In this case cmd (use powershell core? so it can be used on Mac & linux too. Test installing as a nugetPackage on MacOS without getting visual studio)) -->
 
 Accept command line arguments
 Options, extensions, rootcommand, commands, commandHandler, aliases
-
-### Run node processes in our app
-
-Use ProcessStart Info to install and run the speed-test command. i.e `cmdr speed` should run `speed-test --json` in the background.
 
 ### Introduce jq and use jq to build the json object
 
