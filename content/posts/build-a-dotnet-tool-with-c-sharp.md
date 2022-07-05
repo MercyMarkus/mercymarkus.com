@@ -3,7 +3,7 @@ title: 'Building a CLI Tool Aggregator with C#: Creating a hello world .NET tool
 date: 2022-06-18T12:06:03+01:00
 draft: false
 description: "What began as me writing an article about a new thing I'd learnt turned into me trying to build something that at least 1 person would find useful. I am the 'one' person. 😄"
-# series: ['Commander']
+#series: ['Commander']
 tags: [Dotnet]
 ---
 
@@ -63,7 +63,7 @@ This involves:
 
 1. Making our project packable a.k.a the output of our project should be a NuGet package.
 2. Install this package globally on our computer i.e running **`cmdr`** should print out **`Hello, World`**.
-3. Use System.CommandLine to accept a name (**`--name`**) as input so we can print **`Hello, Mercy!`** if the `--name` input is included in the command.
+3. Use System.CommandLine to accept a name (**`--name`**) as input so we can print **`Hello, Mercy!`** if the **`--name`** input is included in the command.
 
 **For the first step our `Commander.csproj` file needs to look like this:**
 
@@ -91,7 +91,7 @@ This involves:
 From the official definitions:
 
 - **PackAsTool** indicates if the NuGet package should be configured as a .NET tool suitable for use with **`dotnet tool install`** (this is the command for installing .NET tools). It's what we are most interested in here.
-- **GeneratePackageOnBuild** is a "nice to have". Adding it results in a new `.nupkg` (NuGet Package) generated every time I build the project. The alternative is running the **`nuget pack`** command manually instead.
+- **GeneratePackageOnBuild** is a "nice to have". Adding it results in a new **`.nupkg`** (NuGet Package) generated every time I build the project. The alternative is running the **`nuget pack`** command manually instead.
 - **ToolCommandName** specifies the command that'll invoke the tool after it's installed.
 - **PackageId** is a case-insensitive NuGet package identifier, which must be unique across nuget.org or whatever gallery the NuGet package will reside in. IDs may not contain spaces or characters that are not valid for a URL and generally follow .NET namespace rules. This is important when we're publishing our NuGet package to a gallery so it can be easily discovered and used.
 - **Description** is a long description of the NuGet package for UI display.
@@ -104,7 +104,7 @@ The tool can be installed globally with:
 dotnet tool install --global --add-source ./bin/Debug Commander --version 1.0.0
 ```
 
-By default, NuGet attempts to find the package in package sources we've already added to the NuGet Package Manager. The `--add-source` flag's value points to the location of the NuGet package that gets generated when we build the project.
+By default, NuGet attempts to find the package in package sources we've already added to the NuGet Package Manager. The **`--add-source`** flag's value points to the location of the NuGet package that gets generated when we build the project.
 
 The output of running this is:
 
@@ -113,13 +113,13 @@ You can invoke the tool using the following command: cmdr
 Tool 'commander' (version '1.0.0') was successfully installed.
 ```
 
-Because we installed the tool globally, running `cmdr` from any terminal window will print `Hello, World!`.
+Because we installed the tool globally, running **`cmdr`** from any terminal window will print **`Hello, World!`**.
 
 More information can be found here: [How to manage .NET tools.](https://docs.microsoft.com/en-us/dotnet/core/tools/global-tools#install-a-global-tool)
 
 **For the third step, we'd like to accept a `name` input.**
 
-Our `Program.cs` file now looks like this:
+Our **`Program.cs`** file now looks like this:
 
 ```Program.cs
 // See https://aka.ms/new-console-template for more information
@@ -152,12 +152,12 @@ return rootCommand.Invoke(args);
 
 The following is happening:
 
-1. We're using System.CommandLine to create an option (**`--name`**) that'll be used to accept a `name` input. This option is also required when the parent command is invoked.
-   > Note: When an option is required and the parent command (`cmdr`) is invoked without it, an error occurs. This won't happen here because we're setting a default value for name.
+1. We're using System.CommandLine to create an option (**`--name`**) that'll be used to accept a **`name`** input. This option is also required when the parent command is invoked.
+   > Note: When an option is required and the parent command (**`cmdr`**) is invoked without it, an error occurs. This won't happen here because we're setting a default value for name.
 2. Setting the default value **`SetDefaultValue`** = **`World`** to maintain the out-of-box experience we got when we [started building out commander.](#building-out-commander)
-3. Making the root command aware of the `nameOption`. You can think of an option as a symbol defining a named parameter that'll hold a value for that parameter.
+3. Making the root command aware of the **`nameOption`**. You can think of an option as a symbol defining a named parameter that'll hold a value for that parameter.
 4. Adding a description for the root command.
-5. Passing the `name` input we're getting from the command line to the root command's handler when we invoke the `cmdr` command.
+5. Passing the **`name`** input we're getting from the command line to the root command's handler when we invoke the **`cmdr`** command.
 
 We can update our tool to this new version by running:
 
@@ -165,14 +165,14 @@ We can update our tool to this new version by running:
 dotnet tool update --global --add-source ./bin/Debug Commander
 ```
 
-Running `cmdr` results in:
+Running **`cmdr`** results in:
 
 ```Shell
 The value for --name is: World
 Hello, World!
 ```
 
-Running `cmdr --name "Mercy Markus"` results in:
+Running **`cmdr --name "Mercy Markus"`** results in:
 
 ```Shell
 The value for --name is: Mercy Markus
@@ -181,7 +181,7 @@ Hello, Mercy Markus!
 
 **Dotnet tools also come with help options out of the box.**
 
-Running `cmdr --help` results in:
+Running **`cmdr --help`** results in:
 
 ```Shell
 Description:
@@ -196,7 +196,7 @@ Options:
   -?, -h, --help                Show help and usage information
 ```
 
-In the next post, we'll modify **commander** to include a speed check subcommand i.e `cmdr speed` outputs our network speed.
+In the next post, we'll modify **commander** to include a speed check subcommand i.e **`cmdr speed`** outputs our network speed.
 
 ### Check Points
 
