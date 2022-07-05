@@ -101,7 +101,7 @@ From the official definitions:
 The tool can be installed globally with:
 
 ```Shell
-dotnet tool install --global --add-source ./bin/Debug Commander --version 1.0.0
+dotnet tool install --global --add-source ./bin/Debug --version 1.0.0 Commander
 ```
 
 By default, NuGet attempts to find the package in package sources we've already added to the NuGet Package Manager. The **`--add-source`** flag's value points to the location of the NuGet package that gets generated when we build the project.
@@ -162,7 +162,7 @@ The following is happening:
 We can update our tool to this new version by running:
 
 ```Shell
-dotnet tool update --global --add-source ./bin/Debug Commander
+dotnet tool update --global --add-source ./bin/Debug --version 1.0.0 Commander
 ```
 
 Running **`cmdr`** results in:
