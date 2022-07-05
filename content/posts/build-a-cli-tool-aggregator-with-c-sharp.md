@@ -36,7 +36,6 @@ var speedCommand = new Command("speed", "runs a speed test")
     Handler = CommandHandler.Create(() =>
     {
         CommandRunner($"(npm list --global fast-cli || npm install --global fast-cli) && fast --upload --json");
-        CommandRunner("exit");
     })
 };
 
@@ -57,7 +56,7 @@ static void CommandRunner(string command)
 
     var powerShellProcess = Process.Start(runProcess);
     powerShellProcess?.StandardInput.WriteLine(command);
-    powerShellProcess?.WaitForExit();
+    powerShellProcess?.WaitForExitAsync(default);
     powerShellProcess?.Close();
 }
 ```
@@ -73,7 +72,7 @@ The following new things are happening:
 
 > Note: **`System.Diagnostics.Process`** class provides access to local and remote processes and enables you to start and stop local system processes.
 
-Update **`cmdr`** using **`dotnet tool update --global --add-source ./bin/Debug Commander`** and run **`cmdr speed`**
+Update **`cmdr`** using **`dotnet tool update --global --add-source ./bin/Debug --version 1.0.0 Commander`** and run **`cmdr speed`**
 
 Result:
 
@@ -94,7 +93,7 @@ C:\Users\mercymarkus\AppData\Roaming\npm
 "latency": 135,
 "bufferBloat": 580,
 "userLocation": "Kaduna, NG",
-"userIp": "197.210.70.242"
+"userIp": "192.180.90.142"
 }
 ```
 
@@ -108,6 +107,47 @@ Options, extensions, rootcommand, commands, commandHandler, aliases
 For handling our output as a JSON object, we'll be using a nifty library called **jq**. You can download it [here](https://stedolan.github.io/jq/download/). I downloaded the jq 1.6 executable
 
 > jq is like sed for JSON data - you can use it to slice and filter and map and transform structured data with the same ease that sed, awk, grep and friends let you play with text. [Source: jq homepage](https://stedolan.github.io/jq/)
+
+Remember the previous output from running the **`cmdr speed`** command in the last section? We'll be using the **jq** library to filter for only the fields we're interested in (**downloadSpeed, uploadSpeed and latency**) as well as adding extra fields we'd like to collect (**dateTime and connectionType**).
+
+**`speedCommand`** now looks like this:
+
+```csharp
+var saveResultOption = new Option<bool>(new[] { "--save-result", "-s" }, getDefaultValue: () => false, "Should speed test result be saved?");
+
+var speedCommand = new Command("speed", "runs a speed test")
+{
+    Handler = CommandHandler.Create<bool>((saveResult) =>
+    {
+        var jqFilterCmd = $"fast --upload --json | " +
+        $"jq --arg dateTime '{DateTime.Now:yyyy-MM-ddTHH:mm:ss}' " +
+        $"'[. | {{downloadSpeed: .downloadSpeed, uploadSpeed: .uploadSpeed, latency:.latency, datetime: $dateTime}}]' | " +
+        $"Out-File speed-test-history.json";
+
+        if (saveResult)
+        {
+            CommandRunner($"(npm list --global fast-cli || npm install --global fast-cli) && {jqFilterCmd}");
+        }
+        else
+        {
+            CommandRunner($"(npm list --global fast-cli || npm install --global fast-cli) && fast --upload --json");
+        }
+    }),
+};
+
+
+cmdrRootCommand.AddCommand(speedCommand);
+speedCommand.AddOption(saveResultOption);
+```
+
+The additional things happening are:
+
+1. We've added an option called **`saveResultOption`**. It's a Boolean command line option we're using to toggle between 2 states; printing the output of the speed test command to the terminal or saving it to a json file. We'd like to do either (or both?).
+2. The **`jqFilterCmd`** variable uses jq to filter the JSON object, includes the extra fields and then outputs this to a file we're calling **`speed-test-history.json`**.
+3. Next, we're toggling between the 2 states we mentioned in the first point.
+4. Lastly, we're adding **`saveResultOption`** as an option to the **`speedCommand`**.
+
+Note: **`speed-test-history.json`** doesn't need to be hard coded. It can be passed as an option too.
 
 ### NetworkInterface.GetAllNetworkInterfaces() to check if network if wired or wireless
 
