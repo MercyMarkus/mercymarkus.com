@@ -1,6 +1,6 @@
 ---
 title: 'Building a CLI Tool Aggregator with C#: Beyond Hello World'
-date: 2022-06-26T12:13:30+05:30
+date: 2022-07-10T12:06:03+01:00
 draft: true
 description: "A continuation of the 'commander' series. We're going to build the aggregator by leveraging the fast-cli npm package."
 series: ['Commander']
@@ -104,9 +104,9 @@ Options, extensions, rootcommand, commands, commandHandler, aliases
 
 ### JSON
 
-For handling our output as a JSON object, we'll be using a nifty library called **jq**. You can download it [here](https://stedolan.github.io/jq/download/). I downloaded the jq 1.6 executable
+For handling our output as a JSON object, we'll be using a nifty library called **jq**. You can download it [here](https://stedolan.github.io/jq/download/). I downloaded the jq 1.6 executable for windows.
 
-> jq is like sed for JSON data - you can use it to slice and filter and map and transform structured data with the same ease that sed, awk, grep and friends let you play with text. [Source: jq homepage](https://stedolan.github.io/jq/)
+> [jq](https://stedolan.github.io/jq/) is like sed for JSON data - you can use it to slice, filter, map and transform structured data with the same ease that sed, awk, grep and friends let you play with text.
 
 Remember the previous output from running the **`cmdr speed`** command in the last section? We'll be using the **jq** library to filter for only the fields we're interested in (**downloadSpeed, uploadSpeed and latency**) as well as adding extra fields we'd like to collect (**dateTime and connectionType**).
 
@@ -134,7 +134,6 @@ var speedCommand = new Command("speed", "runs a speed test")
         }
     }),
 };
-
 
 cmdrRootCommand.AddCommand(speedCommand);
 speedCommand.AddOption(saveResultOption);
