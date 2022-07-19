@@ -187,7 +187,7 @@ ul.flat {
 }
 
 ul.flat li {
-  display: block;
+  display: inline-block;
   list-style: none;
   margin-left: 0;
 }
@@ -558,12 +558,17 @@ ul {
   color: var(--primary-color);
 }
 
+aside.toc {
+  
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+} 
 aside.toc details {
   background: #e7ebf1;
-  padding-bottom: 1px;
+  padding-bottom: 0px;
 }
 aside.toc details summary {
-  font-weight: bold;
+  font-weight: 500;
   padding: 0.5rem;
   background: #f1f2f3;
 }

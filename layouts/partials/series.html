@@ -1,6 +1,6 @@
 {{ if .Params.series }}
 <aside class="toc">
-  <details>
+  <details open>
     <summary>Series Overview</summary>
     <ul class="list-group">
       {{ range $num,$post := (index .Site.Taxonomies.series (index
