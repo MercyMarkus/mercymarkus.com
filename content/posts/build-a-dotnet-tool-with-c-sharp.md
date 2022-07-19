@@ -3,7 +3,7 @@ title: 'Building a CLI Tool Aggregator with C#: Creating a hello world .NET tool
 date: 2022-06-18T12:06:03+01:00
 draft: false
 description: "What began as me writing an article about a new thing I'd learnt turned into me trying to build something that at least 1 person would find useful. I am the 'one' person. 😄"
-#series: ['Commander']
+series: ['Commander']
 tags: [Dotnet]
 ---
 
@@ -198,6 +198,6 @@ Options:
 
 In the next post, we'll modify **commander** to include a speed check subcommand i.e **`cmdr speed`** outputs our network speed.
 
-### Check Points
+### Check Point
 
 - [First checkpoint](https://github.com/MercyMarkus/commander/tree/check-point-1)
