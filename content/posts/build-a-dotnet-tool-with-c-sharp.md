@@ -200,4 +200,4 @@ In the next post, we'll modify **commander** to include a speed check subcommand
 
 ### Check Point
 
-- [First checkpoint](https://github.com/MercyMarkus/commander/tree/check-point-1)
+- [First checkpoint.](https://github.com/MercyMarkus/commander/tree/check-point-1)

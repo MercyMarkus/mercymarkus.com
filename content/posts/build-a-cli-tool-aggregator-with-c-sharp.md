@@ -241,4 +241,4 @@ I plan to save the speed test results in some online storage location (undecided
 
 ### Check Point
 
-- [Second checkpoint](https://github.com/MercyMarkus/commander/tree/check-point-2)
+- [Second checkpoint.](https://github.com/MercyMarkus/commander/tree/check-point-2)
