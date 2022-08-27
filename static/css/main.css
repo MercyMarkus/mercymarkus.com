@@ -559,10 +559,9 @@ ul {
 }
 
 aside.toc {
-  
   margin-bottom: 20px;
   padding-bottom: 20px;
-} 
+}
 aside.toc details {
   background: #e7ebf1;
   padding-bottom: 0px;
@@ -600,4 +599,19 @@ a.heading-link svg {
 a.heading-link:hover,
 a.heading-link:focus {
   visibility: visible;
+}
+
+.iframe-container {
+  overflow: hidden;
+  /* 16:9 aspect ratio */
+  padding-top: 56.25%;
+  position: relative;
+}
+.iframe-container iframe {
+  border: 0;
+  height: 900px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 500px;
 }
