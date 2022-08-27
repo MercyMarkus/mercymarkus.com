@@ -26,9 +26,9 @@ _**Early disclaimer: Months into writing/building this I discovered that speedte
 2. Save the output of the CLI command I'm most interested in (**`speed-test`**) as a JSON file on my computer.
 3. Add extra fields to this JSON output (**`dateTime`** and **`connectionType`**). I'd like to know the exact time I ran the command and if my internet connection was wired (ethernet cable) or wireless (WiFi).
 4. Upload every run of this command to a cloud database. I'd probably do something uncomplicated like updating an online spreadsheet.
-5. Build a live dashboard with the data.
+5. Build a live chart with the data.
 
-I'll be building my first objective using C#. The result is a console application that can be packaged and installed as a NuGet Package. To make this less verbose, I'll assume this is not your first time using C# or the .NET CLI. If this is, please check out the official documentation on how to set up your development environment if you'd like to follow along:
+We'll be building the first objective using C#. The result is a console application that can be packaged and installed as a NuGet Package. To make this less verbose, I'll assume this is not your first time using C# or the .NET CLI. If this is, please check out the official documentation on how to set up your development environment if you'd like to follow along:
 
 - [Set up your development environment](https://docs.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/tutorials/local-environment)
 
@@ -44,7 +44,7 @@ I'll be creating different checkpoints for the development of commander. The fir
 
 We'll be able to give the tool an input (a name) and then it says hello back. This checkpoint is inspired by [this dotnet walkthrough.](https://github.com/dotnet/command-line-api/blob/main/docs/Your-first-app-with-System-CommandLine.md)
 
-Here, I'm using the .NET CLI command-line tool to set up a console application.
+Here, We're using the .NET CLI command-line tool to set up a console application.
 
 ```Shell
 dotnet new console -o commander

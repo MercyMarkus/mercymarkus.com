@@ -237,7 +237,7 @@ While building this, I discovered that there were a bunch of CLI tools that do s
 
 Finally, if you got this far and you're wondering where the CLI tool aggregation is happening as the title says, I'll cover this in the next post 🙏🏾. This was getting too long.
 
-I plan to save the speed test results in some online storage location (undecided on which) and update a live graph of the results in real-time as well.
+I plan to save the speed test results in some online storage location (undecided on which) and update a live chart of the results in real-time as well.
 
 ### Check Point
 
