@@ -2,3 +2,6 @@
 	from = "/*"
 	to = "/404/"
 	status = 404
+	
+[build.environment]
+  HUGO_VERSION = "0.143.1"
