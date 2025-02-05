@@ -133,7 +133,7 @@ blockquote {
   margin-left: 1rem;
   /* font-style: italic; */
   /* font-size: 1.2rem; */
-  /* border-color: var(--primary-color); */
+  border-color: var(--primary-color);
   font-family: 'Inter', sans-serif;
   border-left: 3px solid;
   padding-left: 20px;
