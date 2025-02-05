@@ -2,7 +2,7 @@
 title: 'Building a CLI Tool Aggregator with C#: Plotly Live Interactive Chart using Python'
 date: 2022-08-27T12:06:03+01:00
 draft: false
-description: "The last post in the 'commander' series. We're going to wrap up our CLI tool aggregator and build a live chart of our speed test results."
+description: "The last post in the 'commander' series. We're going to wrap up our CLI tool aggregator and build a live chart of our speed test results"
 series: ['Commander']
 tags: [Dotnet, Node, Python, Plotly]
 ---

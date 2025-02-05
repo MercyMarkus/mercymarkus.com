@@ -2,7 +2,7 @@
 title: 'Building a CLI Tool Aggregator with C#: Beyond Hello World'
 date: 2022-07-19T12:06:03+01:00
 draft: false
-description: "A continuation of the 'commander' series. We're going to leverage the fast-cli npm package."
+description: "A continuation of the 'commander' series. We're going to leverage the fast-cli npm package"
 series: ['Commander']
 tags: [Dotnet, Node]
 ---
