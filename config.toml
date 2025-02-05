@@ -1,24 +1,23 @@
 baseURL = "https://mercymarkus.com/"
 languageCode = "en-us"
 title = 'Mercy Markus'
-paginate = 5
 enableRobotsTXT = true
+mode = "light" # or "dark" or "auto"
 
-copyright = "© Copyright notice"
+copyright = "© Copyright Notice"
 enableemoji = true
 ignorecache = true
 pygmentsUseClasses = true
 pygmentsCodefences = true
 
+[pagination]
+  disableAliases = false
+  pagerSize = 10
+  path = 'page'
 
 [params]
 	subtitle = "Fiddling with code 👩🏾‍💻"
   images = ["https://res.cloudinary.com/mercymarkus-com/image/upload/v1655643575/MercyMarkus_q4mpjj.png"]
-
-	# Content types to disable Disqus on.
-	disableDisqusTypes = ["page"]
-
-	mode = "light" # or "dark" or "auto"
 
 [markup]
   [markup.tableOfContents]
@@ -37,6 +36,12 @@ pygmentsCodefences = true
     lineNumbersInTable = true
     noClasses = false
     style = 'monokailight'
+
+  [markup.goldmark]
+    [markup.goldmark.parser]
+      [markup.goldmark.parser.attribute]
+        block = true
+        title = true
 
 # Nav.
 [[menu.main]]
