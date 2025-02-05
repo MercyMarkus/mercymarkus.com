@@ -33,7 +33,8 @@ This module involved building ETL pipelines for Yellow and Green Taxi data from 
 Following along to this module was mostly straight forward with a few gotchas. Some of these were:
 
 - Linux users will encounter **Connection Refused** errors when connecting to the Postgres DB from within Kestra. This is because host.docker.internal works differently on Linux.
-- Running Kestra, Postgres and PgAdmin using Docker and accessing the Kestra & PgAdmin Dashboard locally: This was a little tricky because Kestra and PgAdmin's default ports are both 8080. Thankfully, the [module's FAQs](https://github.com/DataTalksClub/data-engineering-zoomcamp/tree/main/02-workflow-orchestration#troubleshooting-tips) came in handy and provided a sample Docker Compose file with guidance on navigating this and the **Connection Refused** errors.
+- Running Kestra, Postgres and PgAdmin using Docker and accessing the Kestra & PgAdmin Dashboard locally.
+  - This was a little tricky because Kestra and PgAdmin's default ports are both 8080. Thankfully, the [module's FAQs](https://github.com/DataTalksClub/data-engineering-zoomcamp/tree/main/02-workflow-orchestration#troubleshooting-tips) came in handy and provided a sample Docker Compose file with guidance on navigating this and the **Connection Refused** errors.
 - Additionally, for the **Connection Refused** errors, I updated the pluginDefaults connection info for the different flows referencing it (except for the `03_postgres_dbt.yaml` flow) to the name of the Postgres image defined in the `docker-compose.yml` file.
 
 #### Previous
@@ -58,7 +59,7 @@ pluginDefaults:
       password: k3str4
 ```
 
-- The fix for the `03_postgres_dbt.yaml` connection error was slightly different and required the hostname of my local computer defined in the file.
+- The fix for the `03_postgres_dbt.yaml` connection error was slightly different and required the hostname of my local computer defined in the file (`host` variable).
 
 #### Previous Block
 
