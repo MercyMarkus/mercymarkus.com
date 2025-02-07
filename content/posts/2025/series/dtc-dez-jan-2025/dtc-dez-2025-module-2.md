@@ -2,7 +2,7 @@
 title: 'Data Engineering Zoomcamp by DataTalks.Club: Module 2'
 date: 2025-02-05T12:06:03+01:00
 draft: false
-description: "Introduction to Data Lakes and Workflow Orchestration. Workflow orchestration with Kestra"
+description: "Learn the basics of Data Lakes and Workflow Orchestration, with a focus on workflow orchestration using Kestra."
 series: ['DTC-DEZ']
 tags: [Data, Cloud, Docker, Kestra]
 ---

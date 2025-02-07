@@ -2,7 +2,7 @@
 title: 'Data Engineering Zoomcamp by DataTalks.Club: Module 1'
 date: 2025-01-07T12:06:03+01:00
 draft: false
-description: "Introduction to GCP, Docker and Docker Compose, Running PostgreSQL with Docker and Cloud Infrastructure setup with Terraform"
+description: "Learn the basics of GCP, Docker, Docker Compose, running PostgreSQL in Docker, and cloud infrastructure setup with Terraform."
 series: ['DTC-DEZ']
 tags: [Data, Cloud, Docker]
 ---
